@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     database_url: str
     cors_origins: str = (
         "http://localhost:5173,http://localhost:8080,http://localhost:4173,"
-        "https://randproject.vercel.app"
+        "https://randproject.vercel.app,https://*.vercel.app"
     )
     jwt_secret: str = "change-me-in-prod"
     jwt_algorithm: str = "HS256"
