@@ -11,7 +11,7 @@ app = FastAPI(title=settings.app_name)
 
 # Parse CORS origins
 cors_origins = settings.get_cors_origins()
-vercel_origin_regex = r"https://randproject(?:-[^.]+)?\.vercel\.app"
+vercel_origin_regex = "https://randproject(?:-[^.]+)?\.vercel\.app"
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
