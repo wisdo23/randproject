@@ -1,0 +1,10 @@
+{
+  "services": [
+    {
+      "name": "backend",
+      "env": {
+        "CORS_ORIGINS": "[\"https://randproject.vercel.app\",\"http://localhost:5173\"]"
+      }
+    }
+  ]
+}
