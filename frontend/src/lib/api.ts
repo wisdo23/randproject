@@ -103,9 +103,9 @@ export const api = {
   createDraw: (data: { game_id: number; draw_datetime: string }) =>
     request<ApiDraw>("/draws/", { method: "POST", body: data }),
 
-  getResults: () => request<ApiResult[]>("/results"),
+  getResults: () => request<ApiResult[]>("/results/"),
   createResult: (data: CreateResultPayload) =>
-    request<ApiResult>("/results", { method: "POST", body: data }),
+    request<ApiResult>("/results/", { method: "POST", body: data }),
   reviewResult: (id: number, payload: ReviewResultPayload) =>
     request<ApiResult>(`/results/${id}/verify`, { method: "PATCH", body: payload }),
 

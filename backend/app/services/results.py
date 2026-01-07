@@ -28,10 +28,9 @@ class ResultService:
             raise HTTPException(status_code=400, detail="Winning numbers must be digits")
         if any(not item.isdigit() for item in machine_list):
             raise HTTPException(status_code=400, detail="Machine numbers must be digits")
-        winning_set = set(winning_list)
-        machine_set = set(machine_list)
-        if winning_set & machine_set:
-            raise HTTPException(status_code=400, detail="Winning numbers must not match machine numbers")
+        all_numbers = winning_list + machine_list
+        if len(set(all_numbers)) != len(all_numbers):
+            raise HTTPException(status_code=400, detail="Each winning and machine number must be unique across both lists.")
 
         game = await session.get(Game, draw.game_id)
         share_copy = payload.share_copy or ResultService._build_share_copy(
