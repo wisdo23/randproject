@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from .core.config import settings
 from .api import games, draws, results, social, auth
 from .models import Base
@@ -10,7 +9,6 @@ import asyncio
 
 app = FastAPI(title=settings.app_name)
 # Force HTTPS redirect to avoid mixed content and 307 issues
-app.add_middleware(HTTPSRedirectMiddleware)
 
 # Parse CORS origins
 cors_origins = settings.get_cors_origins()
