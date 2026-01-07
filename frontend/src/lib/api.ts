@@ -91,9 +91,9 @@ export interface AuthToken {
 }
 
 export const api = {
-  getGames: () => request<ApiGame[]>("/games"),
+  getGames: () => request<ApiGame[]>("/games/"),
   createGame: (data: { name: string; description?: string }) =>
-    request<ApiGame>("/games", { method: "POST", body: data }),
+    request<ApiGame>("/games/", { method: "POST", body: data }),
 
   getDraws: () => request<ApiDraw[]>("/draws"),
   createDraw: (data: { game_id: number; draw_datetime: string }) =>
