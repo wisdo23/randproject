@@ -99,9 +99,9 @@ export const api = {
   createGame: (data: { name: string; description?: string }) =>
     request<ApiGame>("/games/", { method: "POST", body: data }),
 
-  getDraws: () => request<ApiDraw[]>("/draws"),
+  getDraws: () => request<ApiDraw[]>("/draws/"),
   createDraw: (data: { game_id: number; draw_datetime: string }) =>
-    request<ApiDraw>("/draws", { method: "POST", body: data }),
+    request<ApiDraw>("/draws/", { method: "POST", body: data }),
 
   getResults: () => request<ApiResult[]>("/results"),
   createResult: (data: CreateResultPayload) =>
